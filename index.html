@@ -1,11 +1,227 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing page teste</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Naquele Temporal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400;700&display=swap');
+
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #0a1e2d;
+    color: #ffc5c5;
+    line-height: 1.6;
+  }
+
+  #titulo-nome {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: url('capa.png') no-repeat center/cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 30, 45, 0.75);
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  .hero h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #c9d6df;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  }
+  .hero p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: #aab7c4;
+  }
+  .btn {
+    background: #5c9ead;
+    color: #f0f0f0;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(92, 158, 173, 0.6);
+    transition: background 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn:hover {
+    background: #4a8397;
+  }
+
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
+    font-size: 2rem;
+    color: #aab7c4;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(10px);}
+  }
+
+  /* Sobre o livro */
+  .about {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+  }
+  .about h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #c9d6df;
+  }
+  .about p {
+    font-size: 1.2rem;
+    color: #d6dce1;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  /* Trechos */
+  .samples {
+    background: #112935;
+    padding: 40px 20px;
+  }
+  .samples h3 {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    color: #c9d6df;
+    margin-bottom: 2rem;
+  }
+  .poem {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #193247;
+    padding: 25px 30px;
+    border-radius: 15px;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #d0d9e0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  /* Compra */
+  .purchase {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+  }
+  .purchase h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #c9d6df;
+  }
+  .purchase p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #d6dce1;
+  }
+
+  /* Footer */
+  footer {
+    background: #0a1e2d;
+    color: #4a8397;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.6rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    .about h2, .purchase h2 {
+      font-size: 2rem;
+    }
+    .samples h3 {
+      font-size: 2rem;
+    }
+  }
+</style>
 </head>
 <body>
-    <h1>Teste</h1>
+
+  <section class="hero">
+    <div class="hero-content">
+      <img id="titulo-nome" src="nome.png">
+      <p>Entre ondas e lágrimas, o coração encontra a palavra.</p>
+      <a href="https://www.amazon.com.br/Naquele-Temporal-Lilly-Carvalho/dp/B0D6QRHWZ8" class="btn">Comprar Agora</a>
+    </div>
+    <div class="scroll-down">⬇</div>
+  </section>
+
+  <section class="about" id="sobre">
+    <h2>Sobre o Livro</h2>
+    <p>
+      <em>Naquele Temporal</em> é uma obra poética de Lilly Carvalho que mergulha nas profundezas das emoções humanas. Através de versos sensíveis, a autora explora temas como ansiedade, depressão, luto e perda, oferecendo uma perspectiva íntima sobre a luta interna e a busca por esperança. Cada poema serve como um abrigo contra as tempestades da alma, transformando palavras em refúgio e resiliência.
+    </p>
+  </section>
+
+  <section class="samples">
+
+    <div class="poem">
+      <p>“Às vezes estamos vivendo nossas vidas normalmente e, de repente, sentimos nossos pés molhados. Olhamos para baixo e vemos tudo inundado; a água começa a subir, e começamos a entrar em desespero.”</p>
+    </div>
+
+    <div class="poem">
+      <p>“Se você não souber nadar ou não tiver ninguém para te salvar, lembre-se de usar o guarda-chuva. O meu guarda-chuva foi um papel e uma caneta, mas você também pode escolher o seu.”</p>
+    </div>
+  </section>
+
+
+  <section class="purchase" id="compra">
+    <h2>Adquira seu exemplar</h2>
+    <p>
+      Leve para casa essa coletânea poética que serve como um abrigo nas tempestades emocionais. <em>Naquele Temporal</em> é uma leitura que acolhe e transforma, ideal para quem busca compreender e enfrentar as próprias emoções.
+    </p>
+    <a href="https://www.amazon.com.br/Naquele-Temporal-Lilly-Carvalho/dp/B0D6QRHWZ8" class="btn" target="_blank">Comprar Agora</a>
+  </section>
+
+
+  <footer>
+    &copy; 2025 Naquele Temporal. Todos os direitos reservados.
+  </footer>
+
 </body>
 </html>
